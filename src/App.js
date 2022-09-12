@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {Button} from "react-bootstrap";
+import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Typography from "@material-ui/core/Typography";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -28,13 +28,13 @@ const useStyles = () => ({
   },
 });
 
-const App = ({classes}) => {
+const App = ({ classes }) => {
   const [transcribedData, setTranscribedData] = useState([]);
   const [interimTranscribedData, setInterimTranscribedData] = useState('');
   const [isRecording, setIsRecording] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('en-US');
 
-  const supportedLanguages = {'en-US': 'English', 'de-DE': 'German', 'fr-FR': 'French', 'es-ES': 'Spanish'}
+  const supportedLanguages = { 'en-US': 'English', 'de-DE': 'German', 'fr-FR': 'French', 'es-ES': 'Spanish' }
 
   function flushInterimData() {
     if (interimTranscribedData !== '') {
@@ -87,19 +87,19 @@ const App = ({classes}) => {
     <div className={classes.root}>
       <div className={classes.title}>
         <Typography variant="h3">
-          Your Transcription App <span role="img" aria-label="microphone-emoji">🎤</span>
+          Playground for Twtich <span role="img" aria-label="microphone-emoji">🎤</span>
         </Typography>
       </div>
       <div className={classes.settingsSection}>
         <SettingsSections possibleLanguages={supportedLanguages} selectedLanguage={selectedLanguage}
-                          onLanguageChanged={setSelectedLanguage}/>
+          onLanguageChanged={setSelectedLanguage} />
       </div>
       <div className={classes.buttonsSection}>
         {!isRecording && <Button onClick={onStart} variant="primary">Start transcribing</Button>}
         {isRecording && <Button onClick={onStop} variant="danger">Stop</Button>}
       </div>
       <div>
-        <TranscribeOutput transcribedText={transcribedData} interimTranscribedText={interimTranscribedData}/>
+        <TranscribeOutput transcribedText={transcribedData} interimTranscribedText={interimTranscribedData} />
       </div>
     </div>
   );
