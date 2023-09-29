@@ -15,7 +15,7 @@ clients = {}
 
 class ClientData:
     def __init__(self, transcribe_thread, conn, config: Dict):
-        self._buff = queue.Queue()  # fdafdsafdsfaufjreuwhfuewhferwfheurfhqiufhewufqh
+        self._buff = queue.Queue()
         self._thread = transcribe_thread
         self._closed = True
         self._conn = conn
